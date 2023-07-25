@@ -128,3 +128,23 @@ fetchUserData()
   .catch((error) => {
     console.log('Error', error.message);
   });
+
+
+  // async-await example 1
+
+async function fetchDataFromAPI() {
+  const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+  const data = await response.json();
+  return data;
+}
+
+async function getData() {
+  try {
+    const data = await fetchDataFromAPI();
+    console.log("Data fetched successfully:", data);
+  } catch (error) {
+    console.error("Error occurred:", error.message);
+  }
+}
+
+getData();
